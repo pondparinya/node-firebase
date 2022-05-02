@@ -2,7 +2,7 @@ const express = require("express");
 const cors = require("cors");
 const bodyParser = require("body-parser");
 // const config = require("./config");
-const gateways = require('./routes/factory');
+const gateways = require("./routes/kpop-profile/index");
 
 const app = express();
 
@@ -16,7 +16,12 @@ app.get("/", function (req, res) {
     message: "Services is running",
   });
 });
+
 app.use("/kpop-profile", gateways);
+
+app.use("*", (req, res) => {
+  res.sendStatus(404);
+});
 
 var port = process.env.PORT || 1323;
 app.listen(port, () => console.log("App is RUNNING on PORT:" + port));
