@@ -3,6 +3,7 @@ const dotenv = require("dotenv");
 dotenv.config();
 
 const {
+	PORT,
   TYPE,
   PROJECT_ID,
   PRIVATE_KEY_ID,
